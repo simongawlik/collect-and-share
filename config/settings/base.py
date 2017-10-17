@@ -47,9 +47,11 @@ DJANGO_APPS = (
 )
 
 THIRD_PARTY_APPS = (
+    'rest_framework',
 )
 
 LOCAL_APPS = (
+    'project.api',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -90,8 +92,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': str(ROOT_DIR.path('db.sqlite3')),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'collect_and_share_db',
+        'USER': 'cas_user',
+        'PASSWORD': '^lhG0jUehpELphsG*K3A',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -144,3 +150,6 @@ STATICFILES_FINDERS = (
 )
 MEDIA_URL = '/media/'
 MEDIA_ROOT = str(APPS_DIR('media'))
+
+REST_FRAMEWORK = {
+}
